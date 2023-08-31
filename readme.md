@@ -76,3 +76,10 @@ volumes are features that docker provides instead of bind mounts
 <!-- repo -> secrets and vars -> actions -->
 create `DOCKERHUB_USERNAME` with your ID as val
 create `DOCKERHUB_TOKEN` via account settings > security
+
+<!-- set up the flow -->
+
+<!-- set up deployment -->
+[Azure](https://docs.docker.com/cloud/aci-integration/)
+[AWS](https://docs.docker.com/cloud/ecs-integration/)
+[Kubernetes](https://docs.docker.com/desktop/kubernetes/)
