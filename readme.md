@@ -41,3 +41,22 @@ volumes are features that docker provides instead of bind mounts
 <!-- make a network for application and db to communicate -->
 `docker network create mongodb`
 
+<!-- set the env to know the conn string -->
+`docker run \
+  -it --rm -d \
+  --network mongodb \
+  --name rest-server \
+  -p 8000:8000 \
+  <!-- 'notes' here is the db name -->
+  -e CONNECTIONSTRING=mongodb://mongodb:27017/notes \ 
+  node-docker`
+
+<!-- or, just put that all into docker-compose -->
+
+<!-- add to the scripts -->
+  "debug": "nodemon --inspect=0.0.0.0:9229 -L server.js"
+
+<!-- add nodemon, starting server in debug mode & watches for changes -->
+
+<!-- start it up agin note the dockercompose ref. passing build compiles & starts -->
+`docker compose -f docker-compose.dev.yml up --build`
