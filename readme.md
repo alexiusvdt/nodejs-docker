@@ -69,8 +69,6 @@ volumes are features that docker provides instead of bind mounts
 <!-- environments can be targeted too -->
 `docker build -t node-docker --target test .`
 
-<!-- now commands can be run with build cmds -->
-`docker build -t node-docker --target test .`
 
 # CI/CD update
 <!-- repo -> secrets and vars -> actions -->
