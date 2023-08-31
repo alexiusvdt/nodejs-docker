@@ -10,8 +10,8 @@ WORKDIR /app
 # COPY ["<src1>", "<src2>",..., "<dest>"] 
 COPY ["package.json", "package-lock.json", "./"]
 
-# can flag --production --development
-RUN npm install --production
+# can flag --production --development, ==include dev deps
+RUN npm install --include=dev
 
 # takes all files in current dir and copies into the image
 COPY . .
