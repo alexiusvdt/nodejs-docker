@@ -71,3 +71,8 @@ volumes are features that docker provides instead of bind mounts
 
 <!-- now commands can be run with build cmds -->
 `docker build -t node-docker --target test .`
+
+# CI/CD update
+<!-- repo -> secrets and vars -> actions -->
+create `DOCKERHUB_USERNAME` with your ID as val
+create `DOCKERHUB_TOKEN` via account settings > security
