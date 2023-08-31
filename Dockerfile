@@ -11,10 +11,9 @@ WORKDIR /app
 COPY ["package.json", "package-lock.json", "./"]
 
 # can flag --production --development
-RUN npm install 
+RUN npm install --production
 
 # takes all files in current dir and copies into the image
 COPY . .
-
 # what cmd to run when the image is inside the container
 CMD ["node", "server.js"]
