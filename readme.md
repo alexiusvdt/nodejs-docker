@@ -61,7 +61,10 @@ volumes are features that docker provides instead of bind mounts
 <!-- start it up agin note the dockercompose ref. passing build compiles & starts -->
 `docker compose -f docker-compose.dev.yml up --build`
 
-<!-- modify scripts to run tests -->
-`docker compose -f docker-compose.dev.yml run notes npm run test`
+<!-- modify scripts to run tests & build -->
+<!-- edit dockerfile to use dev deps too -->
+`docker compose -f docker-compose.dev.yml run --build notes npm run test`
 
-<!-- specify that docker needs to install dev packages too -->
+<!-- multi-stage containers are also possible -->
+<!-- environments can be targeted too -->
+`docker build -t node-docker --target test .`

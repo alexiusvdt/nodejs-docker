@@ -1,19 +1,17 @@
-FROM node:18-alpine
+FROM node:18-alpine as base
 
-# dev or prod
-ENV NODE_ENV=production
+WORKDIR /code
 
-# working dir, default cmd point
-WORKDIR /app
+# 
+COPY package.json package.json
+COPY package-lock.json package-lock.json
 
-# load needed .json into working dir for install cmds
-# COPY ["<src1>", "<src2>",..., "<dest>"] 
-COPY ["package.json", "package-lock.json", "./"]
-
-# can flag --production --development, ==include dev deps
-RUN npm install --include=dev
-
-# takes all files in current dir and copies into the image
+FROM base as test
+RUN npm ci
 COPY . .
-# what cmd to run when the image is inside the container
+CMD ["npm", "run", "test"]
+
+FROM base as prod
+RUN npm ci --production
+COPY . .
 CMD ["node", "server.js"]
